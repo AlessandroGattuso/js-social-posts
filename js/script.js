@@ -34,12 +34,22 @@ const cards = document.querySelector('.card-container');
 posts.forEach((post) =>{
   let img = "";
   let pic;
+  let footerCard;
 
   console.log(post.image != undefined)
   if(post.image != undefined){
     img = `<img src="${post.image}" class="card-img" alt="Image not found"></img>`;
-    console.log('entro')
+    footerCard = `<div class="card-body p-0 d-flex gap-5 w-100 justify-content-center mt-5">
+                    <button class="like"><i class="fa-solid fa-thumbs-up"></i></button>
+                    <span>Piace a <strong class="like-text">${post.n_likes}</strong> persone</span>
+                  </div>`;
   }
+  else
+    footerCard = `<div class="card-body p-0 d-flex gap-5 w-100 justify-content-center mt-3">
+                    <button class="like"><i class="fa-solid fa-thumbs-up"></i></button>
+                    <span>Piace a <strong class="like-text">${post.n_likes}</strong> persone</span>
+                  </div>`;
+    
 
   if(post.authorPic != undefined){
     pic = `<img src="${post.authorPic}" class="profile-pic" alt="Image not found"></img>`;
@@ -61,10 +71,7 @@ posts.forEach((post) =>{
                   <p class="card-text">${post.description}</p>
                 </div>
                 ${img}
-                <div class="card-body p-0 d-flex gap-5 w-100 justify-content-center mt-4">
-                    <button class="like"><i class="fa-solid fa-thumbs-up"></i></button>
-                    <span>Piace a <strong class="like-text">${post.n_likes}</strong> persone</span>
-                </div>
+                ${footerCard}
               </div>
              `;
   cards.innerHTML += card;
@@ -91,8 +98,7 @@ like.forEach((button,i) => {
 
 })
 
-function convertDate(inputFormat) {
-  function pad(s) { return (s < 10) ? '0' + s : s; }
-  let d = new Date(inputFormat)
-  return [pad(d.getDate()), pad(d.getMonth()+1), d.getFullYear()].join('/')
+function convertDate(date) {
+    const formatted = date.split("-");
+    return formatted[1] + "/" + formatted[0] + "/" + formatted[2];
 }
