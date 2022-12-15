@@ -4,13 +4,13 @@ let posts = [
     authorName: 'Pippo Cartesio',
     authorPic: 'https://picsum.photos/500/300',
     description: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis amet natus, illum, commodi exercitationem dolores illo doloremque recusandae dicta numquam voluptas ipsam atque libero molestias?',
-    image: 'https://picsum.photos/200/200',
+    image: 'https://picsum.photos/600/500',
     n_likes: 23
   },
   {
     authorName: 'Emma Rossi',
     description: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis amet natus, illum, commodi exercitationem dolores illo doloremque recusandae dicta numquam voluptas ipsam atque libero molestias?',
-    image: 'https://picsum.photos/300/300',
+    image: 'https://picsum.photos/600/400',
     n_likes: 15199
   },
   {
