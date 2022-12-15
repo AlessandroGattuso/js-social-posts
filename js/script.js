@@ -24,7 +24,7 @@ let posts = [
 ];
 
 posts.forEach((post, i) => {
-  post.date = convertDate(post.date)
+  post.date = formatDate(post.date)
   post.id = i+1;
 });
 
@@ -36,7 +36,6 @@ posts.forEach((post) =>{
   let pic;
   let footerCard;
 
-  console.log(post.image != undefined)
   if(post.image != undefined){
     img = `<img src="${post.image}" class="card-img" alt="Image not found"></img>`;
     footerCard = `<div class="card-body p-0 d-flex gap-5 w-100 justify-content-center mt-5">
@@ -98,7 +97,7 @@ like.forEach((button,i) => {
 
 })
 
-function convertDate(date) {
+function formatDate(date) {
     const formatted = date.split("-");
     return formatted[1] + "/" + formatted[0] + "/" + formatted[2];
 }
