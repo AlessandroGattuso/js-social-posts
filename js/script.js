@@ -27,6 +27,7 @@ posts.forEach((post, i) => {
   post.date = convertDate(post.date)
   post.id = i+1;
 });
+
 const cards = document.querySelector('.card-container');
 
 let img;
@@ -40,8 +41,11 @@ posts.forEach((post) =>{
 
   if(post.authorPic != undefined) 
     pic = `<img src="${post.authorPic}" class="profile-pic" alt="Image not found"></img>`;
-  else
-    pic = `<div class="profile-pic d-flex align-items-center justify-content-center fs-2 text-white">ER</div>`
+
+  else{
+    let nameInitials = post.authorName.split(" ").map((e)=>e[0]).join("");
+    pic = `<div class="profile-pic d-flex align-items-center justify-content-center fs-2 text-white">${nameInitials}</div>`
+  }
   
   let card = `
               <div class="card p-3 myCard">
