@@ -33,35 +33,29 @@ const cards = document.querySelector('.card-container');
 
 posts.forEach((post) =>{
   let img = "";
-  let pic;
+  let profileImg;
   let footerCard;
 
   if(post.image != undefined){
     img = `<img src="${post.image}" class="card-img" alt="Image not found"></img>`;
-    footerCard = `<div class="card-body p-0 d-flex gap-5 w-100 justify-content-center mt-5">
-                    <button class="like"><i class="fa-solid fa-thumbs-up"></i></button>
-                    <span>Piace a <strong class="like-text">${post.n_likes}</strong> persone</span>
-                  </div>`;
+    footerCard = `<div class="card-body p-0 d-flex gap-5 w-100 justify-content-center mt-5">`
   }
   else
-    footerCard = `<div class="card-body p-0 d-flex gap-5 w-100 justify-content-center mt-3">
-                    <button class="like"><i class="fa-solid fa-thumbs-up"></i></button>
-                    <span>Piace a <strong class="like-text">${post.n_likes}</strong> persone</span>
-                  </div>`;
+    footerCard = `<div class="card-body p-0 d-flex gap-5 w-100 justify-content-center mt-3">`
     
 
   if(post.authorPic != undefined){
-    pic = `<img src="${post.authorPic}" class="profile-pic" alt="Image not found"></img>`;
+    profileImg = `<img src="${post.authorPic}" class="profile-pic" alt="Image not found"></img>`;
   }else{
     let nameInitials = post.authorName.split(" ").map((e)=>e[0]).join("");
-    pic = `<div class="profile-pic d-flex align-items-center justify-content-center fs-2 text-white">${nameInitials}</div>`
+    profileImg = `<div class="profile-pic d-flex align-items-center justify-content-center fs-2 text-white">${nameInitials}</div>`
   }
   
   let card = `
               <div class="card p-3 myCard">
                 <div class="card-body p-0 mb-3">
                   <div class="d-flex  mb-3 gap-4">
-                    ${pic}
+                    ${profileImg}
                     <div class="d-flex flex-column">
                       <strong>${post.authorName}</strong>
                       <span>${post.date}</span>
@@ -71,6 +65,9 @@ posts.forEach((post) =>{
                 </div>
                 ${img}
                 ${footerCard}
+                  <button class="like"><i class="fa-solid fa-thumbs-up"></i></button>
+                  <span>Piace a <strong class="like-text">${post.n_likes}</strong> persone</span>
+                </div>
               </div>
              `;
   cards.innerHTML += card;
