@@ -30,19 +30,20 @@ posts.forEach((post, i) => {
 
 const cards = document.querySelector('.card-container');
 
-let img;
-let pic;
 
 posts.forEach((post) =>{
+  let img = "";
+  let pic;
 
-  if(post.image != undefined)
+  console.log(post.image != undefined)
+  if(post.image != undefined){
     img = `<img src="${post.image}" class="card-img" alt="Image not found"></img>`;
-  
+    console.log('entro')
+  }
 
-  if(post.authorPic != undefined) 
+  if(post.authorPic != undefined){
     pic = `<img src="${post.authorPic}" class="profile-pic" alt="Image not found"></img>`;
-
-  else{
+  }else{
     let nameInitials = post.authorName.split(" ").map((e)=>e[0]).join("");
     pic = `<div class="profile-pic d-flex align-items-center justify-content-center fs-2 text-white">${nameInitials}</div>`
   }
