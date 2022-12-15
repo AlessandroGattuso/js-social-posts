@@ -42,14 +42,14 @@ posts.forEach((post) =>{
     footerCard = `<div class="card-body p-0 d-flex gap-5 w-100 justify-content-center mt-3">`
     
 
-  if(post.authorPic != undefined){
+  if(post.authorPic != undefined)
     profileImg = `<img src="${post.authorPic}" class="profile-pic" alt="Image not found"></img>`;
-  }else{
+  else{
     let nameInitials = post.authorName.split(" ").map((e)=>e[0]).join("");
     profileImg = `<div class="profile-pic d-flex align-items-center justify-content-center fs-2 text-white">${nameInitials}</div>`
   }
   
-  let card = `
+  cards.innerHTML += `
               <div class="card p-3 myCard">
                 <div class="card-body p-0 mb-3">
                   <div class="d-flex  mb-3 gap-4">
@@ -68,7 +68,6 @@ posts.forEach((post) =>{
                 </div>
               </div>
              `;
-  cards.innerHTML += card;
 })
 
 const like = document.querySelectorAll('.card button');
