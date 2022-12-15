@@ -2,14 +2,12 @@ let posts = [
   {
     authorName: 'Pippo Cartesio',
     authorPic: 'https://picsum.photos/500/300',
-    date: '06-30-2021',
     description: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis amet natus, illum, commodi exercitationem dolores illo doloremque recusandae dicta numquam voluptas ipsam atque libero molestias?',
     image: 'https://picsum.photos/200/200',
     n_likes: 23
   },
   {
     authorName: 'Emma Rossi',
-    date: '02-16-2021',
     description: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis amet natus, illum, commodi exercitationem dolores illo doloremque recusandae dicta numquam voluptas ipsam atque libero molestias?',
     image: 'https://picsum.photos/300/300',
     n_likes: 15199
@@ -17,13 +15,13 @@ let posts = [
   {
     authorName: 'Roberto Abatantuono',
     authorPic: 'https://picsum.photos/200/300',
-    date: '10-04-2021',
     description: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis amet natus, illum, commodi exercitationem dolores illo doloremque recusandae dicta numquam voluptas ipsam atque libero molestias?',
     n_likes: 99
   }
 ];
 
 posts.forEach((post, i) => {
+  post.date = generateDate();
   post.date = formatDate(post.date)
   post.id = i+1;
 });
@@ -97,4 +95,17 @@ like.forEach((button,i) => {
 function formatDate(date) {
     const formatted = date.split("-");
     return formatted[1] + "/" + formatted[0] + "/" + formatted[2];
+}
+
+function generateDate(){
+  let day = Math.floor(Math.random() * (32 - 1) + 1);
+  let month = Math.floor(Math.random() * (13 - 1) + 1);
+  const year = Math.floor(Math.random() * (2023 - 2012) + 2012);
+
+  if(day < 10)
+    day = "0" + day;
+  if(month < 10)
+    month = "0" + month;
+
+  return month + "-" + day + "-" + year;
 }
