@@ -49,14 +49,12 @@ posts.forEach((post) =>{
   else
     footerCard = `<div class="card-body p-0 d-flex gap-5 w-100 justify-content-center mt-3">`
     
-  //If the profile picture as property of the actual object display it in the post inside the page
-  if(post.author.pic != undefined)
-    profileImg = `<img src="${post.author.pic}" class="profile-pic" alt="Image not found"></img>`;
-  //Else create a div and put inside of it the initials of the author's name
-  else{
-    let nameInitials = post.author.name.split(" ").map((e)=>e[0]).join("");
-    profileImg = `<div class="profile-pic d-flex align-items-center justify-content-center fs-2 text-white">${nameInitials}</div>`
-  }
+  /* If the profile picture as property of the actual object display it in the post inside the page
+     Else create a div and put inside of it the initials of the author's name    */
+  profileImg = (post.author.pic != undefined) ?
+    `<img src="${post.author.pic}" class="profile-pic" alt="Image not found"></img>` :
+    `<div class="profile-pic d-flex align-items-center justify-content-center fs-2 text-white">${post.author.name.split(" ").map((e)=>e[0]).join("")}</div>`;
+  
   
   //append the element
   cards.innerHTML += `
