@@ -24,6 +24,13 @@ let posts = [
     },
     description: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis amet natus, illum, commodi exercitationem dolores illo doloremque recusandae dicta numquam voluptas ipsam atque libero molestias?',
     n_likes: 99
+  },
+  {
+    author:{
+      name: 'Dario della cerra',
+    },
+    description: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis amet natus, illum, commodi exercitationem dolores illo doloremque recusandae dicta numquam voluptas ipsam atque libero molestias?',
+    n_likes: 99
   }
 ];
 
@@ -53,7 +60,7 @@ posts.forEach((post) =>{
      Else create a div and put inside of it the initials of the author's name    */
   profileImg = (post.author.pic != undefined) ?
     `<img src="${post.author.pic}" class="profile-pic" alt="Image not found"></img>` :
-    `<div class="profile-pic d-flex align-items-center justify-content-center fs-2 text-white">${post.author.name.split(" ").map((e)=>e[0]).join("")}</div>`;
+    `<div class="profile-pic d-flex align-items-center justify-content-center fs-4 text-white">${post.author.name.split(" ").map((e)=>e[0]).join("")}</div>`;
   
   
   //append the element
@@ -111,8 +118,8 @@ function generateDate(){
   let month = Math.floor(Math.random() * (13 - 1) + 1);
   const year = Math.floor(Math.random() * (parseInt((new Date().getFullYear())) + 1 - 2012) + 2012);
 
-  (day < 10) ? "0" + day : day;
-  (month < 10) ? month = "0" + month : month;
+  day = (day < 10) ? "0" + day : day;
+  month = (month < 10) ? "0" + month : month;
 
   return month + "-" + day + "-" + year;
 }

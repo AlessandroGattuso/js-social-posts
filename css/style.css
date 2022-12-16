@@ -24,7 +24,7 @@ body{
   background-color: rgb(0, 76, 84);
 }
 
-.card-body img.profile-pic{
+img.profile-pic{
   height: 50px;
 }
 
