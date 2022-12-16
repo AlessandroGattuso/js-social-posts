@@ -30,7 +30,7 @@ let posts = [
       name: 'Vito Antonio Carta',
     },
     description: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis amet natus, illum, commodi exercitationem dolores illo doloremque recusandae dicta numquam voluptas ipsam atque libero molestias?',
-    n_likes: 99
+    n_likes: 255
   }
 ];
 
