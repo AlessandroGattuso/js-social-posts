@@ -1,21 +1,27 @@
 //Create array of posts
 let posts = [
   {
-    authorName: 'Pippo Cartesio',
-    authorPic: 'https://picsum.photos/500/300',
+    author: {
+      name: 'Pippo Cartesio',
+      pic: 'https://picsum.photos/500/300',
+    },
     description: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis amet natus, illum, commodi exercitationem dolores illo doloremque recusandae dicta numquam voluptas ipsam atque libero molestias?',
     image: 'https://picsum.photos/600/500',
     n_likes: 23
   },
   {
-    authorName: 'Emma Rossi',
+    author: {
+      name: 'Emma Rossi',
+    },
     description: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis amet natus, illum, commodi exercitationem dolores illo doloremque recusandae dicta numquam voluptas ipsam atque libero molestias?',
     image: 'https://picsum.photos/600/400',
     n_likes: 15199
   },
   {
-    authorName: 'Roberto Abatantuono',
-    authorPic: 'https://picsum.photos/200/300',
+    author:{
+      name: 'Roberto Abatantuono',
+      pic: 'https://picsum.photos/200/300',
+    },
     description: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis amet natus, illum, commodi exercitationem dolores illo doloremque recusandae dicta numquam voluptas ipsam atque libero molestias?',
     n_likes: 99
   }
@@ -45,11 +51,11 @@ posts.forEach((post) =>{
     footerCard = `<div class="card-body p-0 d-flex gap-5 w-100 justify-content-center mt-3">`
     
   //If the profile picture as property of the actual object display it in the post inside the page
-  if(post.authorPic != undefined)
-    profileImg = `<img src="${post.authorPic}" class="profile-pic" alt="Image not found"></img>`;
+  if(post.author.pic != undefined)
+    profileImg = `<img src="${post.author.pic}" class="profile-pic" alt="Image not found"></img>`;
   //Else create a div and put inside of it the initials of the author's name
   else{
-    let nameInitials = post.authorName.split(" ").map((e)=>e[0]).join("");
+    let nameInitials = post.author.name.split(" ").map((e)=>e[0]).join("");
     profileImg = `<div class="profile-pic d-flex align-items-center justify-content-center fs-2 text-white">${nameInitials}</div>`
   }
   
@@ -60,7 +66,7 @@ posts.forEach((post) =>{
                   <div class="d-flex  mb-3 gap-4">
                     ${profileImg}
                     <div class="d-flex flex-column">
-                      <strong>${post.authorName}</strong>
+                      <strong>${post.author.name}</strong>
                       <span>${post.date}</span>
                     </div>
                   </div>
@@ -91,12 +97,13 @@ like.forEach((button,i) => {
       likeText[i].innerText = ++posts[i].n_likes;
       postsLiked.push(i+1);
     } 
-    //else remove class 'active' to the button, decrement the number of likes, update the like-text and at the end remove the id of the post inside postLiked
+    //else remove class 'active' to the button, decrement the number of likes, update the like-text and at the end remove the id of the post inside postsLiked
     else{
       this.classList.remove('active')
       likeText[i].innerText = --posts[i].n_likes;
       postsLiked = postsLiked.filter((likeItem)=> likeItem!=i+1);
     }
+
   })
 
 })
