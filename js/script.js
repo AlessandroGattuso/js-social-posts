@@ -29,8 +29,7 @@ let posts = [
 
 //add date and id properties to to every obj of the array
 posts.forEach((post, i) => {
-  post.date = generateDate();
-  post.date = formatDate(post.date)
+  post.date =  formatDate(generateDate());
   post.id = i+1;
 });
 
