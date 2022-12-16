@@ -29,7 +29,7 @@ let posts = [
 
 //add date and id properties to to every obj of the array
 posts.forEach((post, i) => {
-  post.date =  formatDate(generateDate());
+  post.date = formatDate(generateDate());
   post.id = i+1;
 });
 
@@ -113,10 +113,8 @@ function generateDate(){
   let month = Math.floor(Math.random() * (13 - 1) + 1);
   const year = Math.floor(Math.random() * (parseInt((new Date().getFullYear())) + 1 - 2012) + 2012);
 
-  if(day < 10)
-    day = "0" + day;
-  if(month < 10)
-    month = "0" + month;
+  (day < 10) ? "0" + day : day;
+  (month < 10) ? month = "0" + month : month;
 
   return month + "-" + day + "-" + year;
 }
